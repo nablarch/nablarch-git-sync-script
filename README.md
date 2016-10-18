@@ -21,31 +21,41 @@ nablarch-framework-git-synch_ssh.shを使用します。
 
 1. キーペアを作成します。
   1. キーペアを作成してください。
-		cd ~/.ssh
-		ssh-keygen -t rsa -C ${GitHubアカウントメールアドレス}
+  ```
+  cd ~/.ssh
+  ssh-keygen -t rsa -C ${GitHubアカウントメールアドレス}
+  ```
     ~/.ssh配下に以下のファイルが作成されます。
     * id_rsa
     * id_rsa.pub
   1. ~/.sshにconfigファイルを配置してください。
-		mkdir ~/.ssh
-		vi ~/.ssh/config
+  ```
+  mkdir ~/.ssh
+  vi ~/.ssh/config
+  ```
   1. ~/.ssh/configを以下のように編集します。
-		#プロキシサーバを使用している場合
-		ProxyCommand "${gitのホームディレクトリ}\bin\connect.exe" -H ${proxy host}:${proxy port} %h %p
-    	Host github.com
-  		Hostname ssh.github.com
-  		Port 443
-  		IdentityFile ~/.ssh/id_rsa
-  		User git
+  ```
+  #プロキシサーバを使用している場合
+  ProxyCommand "${gitのホームディレクトリ}\bin\connect.exe" -H ${proxy host}:${proxy port} %h %p
+  Host github.com
+  Hostname ssh.github.com
+  Port 443
+  IdentityFile ~/.ssh/id_rsa
+  User git
+  ```
 1. https://github.com/settings/keys にブラウザからアクセスしてください。
   1. New SSH Key を押下してください。
   1. 下記内容を記入してください。
     * title→任意
     * Key→~/.ssh/id_rsa.pub の内容をCopy&Pasteしてください。
 1. GitHubとの疎通確認を行います。
-		ssh -T git@github.com
-	下記メッセージが返ってきたら成功です。
-		Hi (account名)! You've successfully authenticated, but GitHub does not provide shell access.
+  ```
+  ssh -T git@github.com
+  ```
+  下記メッセージが返ってきたら成功です。
+  ```
+  Hi (account名)! You've successfully authenticated, but GitHub does not provide shell access.
+  ```
         
 #### 一括cloneとインストール
 
