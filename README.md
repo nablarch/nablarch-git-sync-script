@@ -19,21 +19,23 @@ nablarch-framework-git-synch_ssh.shを使用します。
 
 #### キーペアの作成・登録が済んでいない場合は、下記手順を実施してください。
 
-1. キーペアを作成します。
-  1. キーペアを作成してください。
+1. キーペアを作成してください。
+
   ```
   cd ~/.ssh
   ssh-keygen -t rsa -C ${GitHubアカウントメールアドレス}
   ```
-    ~/.ssh配下に以下のファイルが作成されます。
-    * id_rsa
-    * id_rsa.pub
-  1. ~/.sshにconfigファイルを配置してください。
+  ~/.ssh配下に以下のファイルが作成されます。
+  * id_rsa
+  * id_rsa.pub
+1. ~/.sshにconfigファイルを配置してください。
+  
   ```
   mkdir ~/.ssh
   vi ~/.ssh/config
   ```
-  1. ~/.ssh/configを以下のように編集します。
+1. ~/.ssh/configを以下のように編集します。
+
   ```
   #プロキシサーバを使用している場合
   ProxyCommand "${gitのホームディレクトリ}\bin\connect.exe" -H ${proxy host}:${proxy port} %h %p
@@ -49,6 +51,7 @@ nablarch-framework-git-synch_ssh.shを使用します。
     * title→任意
     * Key→~/.ssh/id_rsa.pub の内容をCopy&Pasteしてください。
 1. GitHubとの疎通確認を行います。
+
   ```
   ssh -T git@github.com
   ```
