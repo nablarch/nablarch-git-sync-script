@@ -16,12 +16,12 @@ windows環境で本シェルを実行する場合は、Git BASHを利用して�
 ### 一括cloneとインストール
 
 1. リポジトリをcloneしたいディレクトリに移動してください。
-2. 本Shellを実行してください。
+2. nablarch-framework-git-synch.shとnablarch-framework-names.txtを同ディレクトリに配置し、Shellを実行してください。
 3. リポジトリのcloneとgradle installが実行されます。
 
 ### 一括pullとインストール
 
 1. pullしたいリポジトリが配置されているディレクトリに移動してください。
-2. 本Shellを実行してください。
+2. nablarch-framework-git-synch.shとnablarch-framework-names.txtを同ディレクトリに配置し、Shellを実行してください。
 3. リポジトリのpullとgradle installが実行されます。
 
