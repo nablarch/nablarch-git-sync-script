@@ -31,7 +31,6 @@ nablarch-framework-git-synch_ssh.shを使用します。
 1. ~/.sshにconfigファイルを配置してください。
   
   ```
-  mkdir ~/.ssh
   vi ~/.ssh/config
   ```
 1. ~/.ssh/configを以下のように編集します。
