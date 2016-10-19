@@ -1,64 +1,27 @@
-# nablarch-framework 最新化Shell
+# nablarch-framework リモートブランチ同期シェル
+ローカルリポジトリの作成、及びリモートブランチとの同期を一括で行うシェルです。
 
-分類「framework」のモジュールをカレントディレクトリに一括clone もしくはpullし、ローカルにinstallするShellです。
-カレントディレクトリに対象リポジトリが存在しない場合はgit clone、対象リポジトリが存在する場合はgit pullを実行します。
+* 分類「framework」のモジュールのdevelopブランチをカレントディレクトリに一括cloneし、ローカルにinstallします。
+* カレントディレクトリに対象リポジトリが存在する場合は、現在のブランチに対してgit pullを実行し、ローカルにinstallします。
 
-## 用途
+※取得したソースコードが正常にビルドできることを補償するものではありません。
 
-開発端末ローカルに、最新のソースコードを取得してビルドするために使用します。
+## Getting Started
 
-※取得したソースコードで正常にビルドできることを補償するものではありません。
+1. 本シェルを実行し、同期専用のローカルリポジトリを作成してください。
+1. 本シェルを実行し、開発用のローカルリポジトリを作成してください。
+1. 同期専用のローカルリポジトリで定期的に本シェルを実行し、リポジトリを同期してください。
 
-## 使用方法
+※ **同期専用のローカルリポジトリには変更を加えないでください。また、開発用ローカルリポジトリの更新は手動で実施してください。**
 
+## シェルの実行方法
 windows環境で下記手順を実行する場合は、Git Bashを利用してください。
 
 ### SSHを用いてGitHubにアクセスする場合
+nablarch-framework-git-synch_ssh.shを使用してください。
 
-nablarch-framework-git-synch_ssh.shを使用します。
+※事前にキーペアの作成とGitHubへの登録が必要です。
 
-#### キーペアの作成・登録が済んでいない場合は、下記手順を実施してください。
-
-1. キーペアを作成してください。
-
-  ```
-  cd ~/.ssh
-  ssh-keygen -t rsa -C ${GitHubアカウントメールアドレス}
-  ```
-  ~/.ssh配下に以下のファイルが作成されます。
-  * id_rsa
-  * id_rsa.pub
-1. ~/.sshにconfigファイルを配置してください。
-  
-  ```
-  vi ~/.ssh/config
-  ```
-1. ~/.ssh/configを以下のように編集します。
-
-  ```
-  #プロキシサーバを使用している場合
-  ProxyCommand "${gitのホームディレクトリ}\bin\connect.exe" -H ${proxy host}:${proxy port} %h %p
-  Host github.com
-  Hostname ssh.github.com
-  Port 443
-  IdentityFile ~/.ssh/id_rsa
-  User git
-  ```
-1. https://github.com/settings/keys にブラウザからアクセスしてください。
-  1. New SSH Key を押下してください。
-  1. 下記内容を記入してください。
-    * title→任意
-    * Key→~/.ssh/id_rsa.pub の内容をCopy&Pasteしてください。
-1. GitHubとの疎通確認を行います。
-
-  ```
-  ssh -T git@github.com
-  ```
-  下記メッセージが返ってきたら成功です。
-  ```
-  Hi (account名)! You've successfully authenticated, but GitHub does not provide shell access.
-  ```
-        
 #### 一括cloneとインストール
 
 1. リポジトリをcloneしたいディレクトリに移動してください。
@@ -73,9 +36,7 @@ nablarch-framework-git-synch_ssh.shを使用します。
 
 ### HTTPSを用いてGitHubにアクセスする場合
 
-nablarch-framework-git-synch.shを使用します。
-
-事前準備は不要です。
+nablarch-framework-git-synch.shを使用してください。
 
 ### 一括cloneとインストール
 
